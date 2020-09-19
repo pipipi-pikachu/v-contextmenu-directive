@@ -1,28 +1,105 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" v-contextmenu="contextmenus">
+    {{msg}}
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  data() {
+    return {
+      msg: '',
+      switchState: false,
+    }
+  },
+  methods: {
+    contextmenus() {
+      return [
+        {
+          text: '剪切',
+          subText: 'Ctrl + X',
+          icon: 'icon-scissor',
+          action: () => this.msg = '你点击了剪切'
+        },
+        {
+          text: '复制',
+          subText: 'Ctrl + C',
+          icon: 'icon-copy',
+          action: () => this.msg = '你点击了复制'
+        },
+        {
+          text: '粘贴',
+          subText: 'Ctrl + V',
+          icon: 'icon-paste',
+          action: () => this.msg = '你点击了粘贴'
+        },
+        { divider: true },
+        {
+          text: '二级菜单',
+          icon: 'icon-number',
+          children: [
+            { text: '子菜单1' },
+            { text: '子菜单2' },
+            {
+              text: '三级菜单',
+              children: [
+                { text: '子菜单1' },
+                { text: '子菜单2' },
+              ],
+            },
+          ],
+        },
+        {
+          text: '开关选项',
+          icon: 'icon-number',
+          children: [
+            {
+              text: '打开',
+              icon: this.switchState ? 'icon-check' : '',
+              iconPlacehoder: true,
+              disable: this.switchState,
+              action: () => this.switchState = true
+            },
+            {
+              text: '关闭',
+              icon: !this.switchState ? 'icon-check' : '',
+              iconPlacehoder: true,
+              disable: !this.switchState,
+              action: () => this.switchState = false
+            },
+          ],
+        },
+        { divider: true },
+        {
+          text: '删除',
+          subText: 'Delete',
+          icon: 'icon-delete',
+          action: e => {
+            this.msg = '你点击了删除'
+            console.log(e)
+          }
+        },
+      ]
+    }
+  },
 }
 </script>
 
 <style lang="scss">
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
 #app {
+  height: 100%;
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  transition: background-color .2s;
+
+  &.contextmenu-active {
+    background-color: #f5f5f5;
+  }
 }
 </style>

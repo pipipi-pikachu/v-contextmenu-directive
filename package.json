@@ -1,12 +1,23 @@
 {
-  "name": "vue-contextmenu",
-  "version": "0.1.0",
-  "private": true,
+  "name": "v-contextmenu-directive",
+  "version": "1.0.0",
+  "main": "./dist/v-contextmenu-directive.umd.min.js",
+  "private": false,
+  "keywords": [
+    "vue",
+    "contextmenu",
+    "v-contextmenu",
+    "v-contextmenu-directive"
+  ],
+  "author": "1171051090@qq.com",
+  "description": "一个基于 Vue2.x 的右键菜单插件",
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "package": "vue-cli-service build --target lib --name v-contextmenu-directive ./src/contextmenu/index.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",
