@@ -12,17 +12,15 @@ yarn add v-contextmenu-directive
 ## 📚 如何使用？
 ```javascript
 import Vue from 'vue'
-import * as VueMenu from '@hscmap/vue-menu'
+import Contextmenu from 'v-contextmenu-directive'
 
-Vue.use(VueMenu)
+Vue.use(Contextmenu)
 ```
 
 ### 基础用法：
 ```html
 <!-- template -->
-<div v-contextmenu="contextmenus">
-  {{msg}}
-</div>
+<div v-contextmenu="contextmenus"></div>
 ```
 ```javascript
 // script
