@@ -1,6 +1,6 @@
 {
   "name": "v-contextmenu-directive",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./dist/v-contextmenu-directive.umd.min.js",
   "private": false,
   "keywords": [
@@ -11,6 +11,10 @@
   ],
   "author": "1171051090@qq.com",
   "description": "一个基于 Vue2.x 的右键菜单插件",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pipipi-pikachu/v-contextmenu-directive"
+  },
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
