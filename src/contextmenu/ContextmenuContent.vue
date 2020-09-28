@@ -1,22 +1,24 @@
 <template>
-  <ul class="contextmenu-content">
+  <ul :class="['v-contextmenu-content', { 'dark': isDark }]">
     <template v-for="(menu, index) in menus">
       <li
         v-if="!menu.hide"
-        class="contextmenu-item"
+        class="v-contextmenu-item"
         :key="menu.text || index"
         @click.stop="clickMenuItem(menu)"
         :class="{'divider': menu.divider, 'disable': menu.disable}"
       >
-        <div class="contextmenu-item-content" :class="{'has-sub-menu': menu.children}" v-if="!menu.divider">
+        <div class="v-contextmenu-item-content" :class="{'has-sub-menu': menu.children}" v-if="!menu.divider">
           <span class="text">
-            <IconFont class="icon" v-if="menu.icon" :type="menu.icon" />
+            <span class="icon" v-if="menu.icon">
+              <IconFont :type="menu.icon" />
+            </span>
             <div v-else-if="menu.iconPlacehoder" class="icon-placehoder"></div>
             <span>{{menu.text}}</span>
           </span>
           <span class="sub-text" v-if="menu.subText && !menu.children">{{menu.subText}}</span>
 
-          <contextmenu-content 
+          <v-contextmenu-content 
             class="sub-menu" 
             :style="{
               [subMenuPosition]: '112.5%',
@@ -35,7 +37,7 @@
 import IconFont from './IconFont'
 
 export default {
-  name: 'contextmenu-content',
+  name: 'v-contextmenu-content',
   components: {
     IconFont,
   },
@@ -43,6 +45,10 @@ export default {
     menus: {
       type: Array,
       required: true,
+    },
+    isDark: {
+      type: Boolean,
+      default: false,
     },
     subMenuPosition: {
       type: String,
@@ -61,16 +67,43 @@ $menuWidth: 160px;
 $menuHeight: 32px;
 $subMenuWidth: 120px;
 
-.contextmenu-content {
+.v-contextmenu-content {
   width: $menuWidth;
   padding: 5px 0;
-  background: #fff;
+  background-color: #fff;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
   border-radius: 2px;
   list-style: none;
   margin: 0;
+
+  &.dark {
+    background-color: #393939;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.25);
+
+    .v-contextmenu-content {
+      background-color: #393939;
+      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    .v-contextmenu-item {
+      color: #f1f1f1;
+      background-color: #393939;
+
+      &:hover:not(.disable) {
+        background-color: #555;
+      }
+
+      &.divider {
+        background-color: #999;
+      }
+
+      &.disable {
+        color: #999;
+      }
+    }
+  }
 }
-.contextmenu-item {
+.v-contextmenu-item {
   padding: 0 20px;
   color: #666;
   font-size: 12px;
@@ -82,7 +115,7 @@ $subMenuWidth: 120px;
   background-color: #fff;
   cursor: pointer;
 
-  &:not(.disable):hover > .contextmenu-item-content > .sub-menu {
+  &:not(.disable):hover > .v-contextmenu-item-content > .sub-menu {
     display: block;
   }
 
@@ -104,7 +137,7 @@ $subMenuWidth: 120px;
     cursor: no-drop;
   }
 }
-.contextmenu-item-content {
+.v-contextmenu-item-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -124,9 +157,14 @@ $subMenuWidth: 120px;
     transform: translateY(-50%);
   }
 
+  .text {
+    display: flex;
+    align-items: center;
+  }
   .icon {
     margin-right: 7px;
-    vertical-align: middle;
+    display: flex;
+    align-items: center;
   }
   .text span {
     vertical-align: middle;

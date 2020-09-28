@@ -1,5 +1,5 @@
 <template>
-  <div class="contextmenu" 
+  <div class="v-contextmenu" 
     v-show="status" 
     :style="{
       left: style.left,
@@ -9,6 +9,7 @@
   >
     <ContextmenuContent 
       :menus="menus" 
+      :isDark="isDark"
       :subMenuPosition="style.subMenuPosition" 
       :clickMenuItem="clickMenuItem" 
     />
@@ -25,7 +26,7 @@ const DIVIDER_HEIGHT = 11
 const SUB_MENU_WIDTH = 120
 
 export default {
-  name: 'contextmenu',
+  name: 'v-contextmenu',
   components: {
     ContextmenuContent,
   },
@@ -44,6 +45,10 @@ export default {
       default() {
         return [{ text: '' }]
       },
+    },
+    isDark: {
+      type: Boolean,
+      default: false,
     },
     removeContextMenu: {
       type: Function,
@@ -104,7 +109,7 @@ export default {
 </script>
 
 <style lang="scss">
-.contextmenu {
+.v-contextmenu {
   position: fixed;
   z-index: 9999;
   user-select: none;

@@ -13,6 +13,8 @@ const ContextMenuDirective = {
 
       const menus = binding.value(el)
       if(!menus) return
+
+      const isDark = binding.modifiers.dark
   
       const removeContextMenu = () => {
         if(instance) {
@@ -47,6 +49,7 @@ const ContextMenuDirective = {
       instance.axis = { x: e.x, y: e.y }
       instance.el = el
       instance.menus = menus
+      instance.isDark = isDark
       instance.removeContextMenu = removeContextMenu
       
       document.body.appendChild(instance.$el)

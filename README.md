@@ -2,12 +2,14 @@
 
 > 一个基于 Vue2.x 的右键菜单插件。
 
+
 ## 📦 安 装
 ```bash
 npm install v-contextmenu-directive
 # or
 yarn add v-contextmenu-directive
 ```
+
 
 ## 📚 如何使用？
 ```javascript
@@ -16,6 +18,7 @@ import Contextmenu from 'v-contextmenu-directive'
 
 Vue.use(Contextmenu)
 ```
+
 
 ### 基础用法：
 ```html
@@ -49,6 +52,7 @@ methods: {
 },
 ```
 
+
 ### 多级菜单：
 ```javascript
 methods: {
@@ -73,6 +77,7 @@ methods: {
 }
 ```
 
+
 ### 结合[iconfont](https://www.iconfont.cn/)使用：
 ```html
 <!-- index.html -->
@@ -96,6 +101,7 @@ methods: {
   }
 }
 ```
+
 
 ### 事件和点击对象：
 ```html
@@ -135,6 +141,7 @@ methods: {
 }
 ```
 
+
 ### dom激活右键菜单的状态：
 挂载指令的dom在右键菜单被激活的情况下，会被添加一个contextmenu-active的class
 ```html
@@ -151,13 +158,24 @@ methods: {
 }
 ```
 
+
+### 主题：
+右键菜单默认主题为light，你可以添加dark修饰符来使用dark主题
+```html
+<!-- template -->
+<div id="app" v-contextmenu.dark="contextmenus"></div>
+```
+
+
 ## 📒 完整参数
-- `text` string 菜单项文字
-- `subText` string 菜单项文字补充
-- `icon` string iconfont 图标
-- `action` Function 菜单项点击后执行的方法
-- `divider` bool 分割线，与其他参数不共存
-- `children` array 子菜单
-- `disable` bool 禁用菜单项
-- `hide` bool 隐藏菜单项
-- `iconPlacehoder` bool 图标占位，添加此项后文字左侧会预留出与图标大小一致的空间，让有图标和无图标的菜单项保持对齐
+| prop           | type     | 描述                                            |   |
+|----------------|----------|-----------------------------------------------|---|
+| text           | string   | 菜单项文字                                         |   |
+| subText        | string   | 菜单项文字补充                                       |   |
+| icon           | string   | iconfont 图标                                   |   |
+| action         | function | 菜单项点击后执行的方法                                   |   |
+| divider        | bool     | 分割线，与其他参数不共存                                  |   |
+| children       | array    | 子菜单                                           |   |
+| disable        | bool     | 禁用菜单项                                         |   |
+| hide           | bool     | 隐藏菜单项                                         |   |
+| iconPlacehoder | bool     | 图标占位，添加此项后文字左侧会预留出与图标大小一致的空间，让有图标和无图标的菜单项保持对齐 |   |

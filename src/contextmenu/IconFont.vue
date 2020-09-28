@@ -1,6 +1,6 @@
-<template>
-  <svg class="icon-font" @click="$emit('click')">
-    <use :xlink:href="'#' + type"></use>
+<template functional>
+  <svg class="icon-font">
+    <use :xlink:href="'#' + props.type"></use>
   </svg>
 </template>
 
