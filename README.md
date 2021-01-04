@@ -168,14 +168,14 @@ methods: {
 
 
 ## 📒 完整参数
-| prop           | type     | 描述                                            |   |
-|----------------|----------|-----------------------------------------------|---|
-| text           | string   | 菜单项文字                                         |   |
-| subText        | string   | 菜单项文字补充                                       |   |
-| icon           | string   | iconfont 图标                                   |   |
-| action         | function | 菜单项点击后执行的方法                                   |   |
-| divider        | bool     | 分割线，与其他参数不共存                                  |   |
-| children       | array    | 子菜单                                           |   |
-| disable        | bool     | 禁用菜单项                                         |   |
-| hide           | bool     | 隐藏菜单项                                         |   |
-| iconPlacehoder | bool     | 图标占位，添加此项后文字左侧会预留出与图标大小一致的空间，让有图标和无图标的菜单项保持对齐 |   |
+| prop           | type     | 描述                                           |
+|----------------|----------|-----------------------------------------------|
+| text           | string   | 菜单项文字                                      |
+| subText        | string   | 菜单项文字补充                                   |
+| icon           | string   | iconfont 图标                                   |
+| action         | function | 菜单项点击后执行的方法                            |
+| divider        | bool     | 分割线，与其他参数不共存                           |
+| children       | array    | 子菜单                                          |
+| disable        | bool     | 禁用菜单项                                       |
+| hide           | bool     | 隐藏菜单项                                       |
+| iconPlacehoder | bool     | 图标占位，添加此项后文字左侧会预留出与图标大小一致的空间，让有图标和无图标的菜单项保持对齐 |

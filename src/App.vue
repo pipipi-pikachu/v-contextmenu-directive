@@ -36,7 +36,7 @@ export default {
         },
         { divider: true },
         {
-          text: '二级菜单',
+          text: '多级菜单',
           icon: 'icon-number',
           children: [
             { text: '子菜单1' },
@@ -51,7 +51,7 @@ export default {
           ],
         },
         {
-          text: '开关选项',
+          text: '选项开关',
           icon: 'icon-number',
           children: [
             {
