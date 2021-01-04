@@ -15,6 +15,7 @@
     "type": "git",
     "url": "https://github.com/pipipi-pikachu/v-contextmenu-directive"
   },
+  "homepage": "https://github.com/pipipi-pikachu/v-contextmenu-directive",
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
