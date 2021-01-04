@@ -9,7 +9,7 @@ export default {
   name: 'App',
   data() {
     return {
-      msg: '',
+      msg: '在空白区域点击鼠标右键',
       switchState: false,
     }
   },
