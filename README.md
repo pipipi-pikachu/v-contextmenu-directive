@@ -1,6 +1,6 @@
 # 🌈 v-contextmenu-directive
 
-> 一个基于 Vue2.x 的右键菜单插件。
+> 基于 Vue2.x 的右键菜单插件。
 
 DEMO: https://pipipi-pikachu.github.io/v-contextmenu-directive/
 
