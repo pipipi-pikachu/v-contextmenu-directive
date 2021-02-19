@@ -2,7 +2,7 @@
 
 > 基于 Vue2.x 的右键菜单插件。
 
-DEMO: https://pipipi-pikachu.github.io/v-contextmenu-directive/
+DEMO: https://pipipi-pikachu.github.io/v-contextmenu-directive/dist/
 
 
 ## 📦 安 装
