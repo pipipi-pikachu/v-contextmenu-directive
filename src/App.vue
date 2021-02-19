@@ -1,5 +1,5 @@
 <template>
-  <div id="app" v-contextmenu="contextmenus">
+  <div id="app" v-contextmenu.dark="contextmenus">
     {{msg}}
   </div>
 </template>
@@ -17,27 +17,20 @@ export default {
     contextmenus() {
       return [
         {
-          text: '剪切',
-          subText: 'Ctrl + X',
-          icon: 'icon-scissor',
-          action: () => this.msg = '你点击了剪切'
+          text: '删除',
+          subText: 'BACKSPACE',
+          action: e => {
+            this.msg = '你点击了删除'
+            console.log(e)
+          }
         },
         {
-          text: '复制',
-          subText: 'Ctrl + C',
-          icon: 'icon-copy',
-          action: () => this.msg = '你点击了复制'
-        },
-        {
-          text: '粘贴',
-          subText: 'Ctrl + V',
-          icon: 'icon-paste',
-          action: () => this.msg = '你点击了粘贴'
+          text: '禁用菜单项',
+          disable: true,
         },
         { divider: true },
         {
           text: '多级菜单',
-          icon: 'icon-number',
           children: [
             { text: '子菜单1' },
             { text: '子菜单2' },
@@ -50,35 +43,21 @@ export default {
             },
           ],
         },
-        {
-          text: '选项开关',
-          icon: 'icon-number',
-          children: [
-            {
-              text: '打开',
-              icon: this.switchState ? 'icon-check' : '',
-              iconPlacehoder: true,
-              disable: this.switchState,
-              action: () => this.switchState = true
-            },
-            {
-              text: '关闭',
-              icon: !this.switchState ? 'icon-check' : '',
-              iconPlacehoder: true,
-              disable: !this.switchState,
-              action: () => this.switchState = false
-            },
-          ],
-        },
         { divider: true },
         {
-          text: '删除',
-          subText: 'Delete',
-          icon: 'icon-delete',
-          action: e => {
-            this.msg = '你点击了删除'
-            console.log(e)
-          }
+          text: '剪切',
+          subText: 'CTRL + X',
+          action: () => this.msg = '你点击了剪切'
+        },
+        {
+          text: '复制',
+          subText: 'CTRL + C',
+          action: () => this.msg = '你点击了复制'
+        },
+        {
+          text: '粘贴',
+          subText: 'CTRL + V',
+          action: () => this.msg = '你点击了粘贴'
         },
       ]
     }
@@ -97,6 +76,9 @@ html, body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   color: #2c3e50;
   transition: background-color .2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &.contextmenu-active {
     background-color: #f5f5f5;

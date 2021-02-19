@@ -9,13 +9,7 @@
         :class="{'divider': menu.divider, 'disable': menu.disable}"
       >
         <div class="v-contextmenu-item-content" :class="{'has-sub-menu': menu.children}" v-if="!menu.divider">
-          <span class="text">
-            <span class="icon" v-if="menu.icon">
-              <IconFont :type="menu.icon" />
-            </span>
-            <div v-else-if="menu.iconPlacehoder" class="icon-placehoder"></div>
-            <span>{{menu.text}}</span>
-          </span>
+          <span class="text">{{menu.text}}</span>
           <span class="sub-text" v-if="menu.subText && !menu.children">{{menu.subText}}</span>
 
           <v-contextmenu-content 
@@ -34,13 +28,8 @@
 </template>
 
 <script>
-import IconFont from './IconFont'
-
 export default {
   name: 'v-contextmenu-content',
-  components: {
-    IconFont,
-  },
   props: {
     menus: {
       type: Array,
@@ -63,26 +52,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$menuWidth: 160px;
-$menuHeight: 32px;
+$menuWidth: 170px;
+$menuHeight: 30px;
 $subMenuWidth: 120px;
 
 .v-contextmenu-content {
   width: $menuWidth;
   padding: 5px 0;
   background-color: #fff;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.12);
   border-radius: 2px;
   list-style: none;
   margin: 0;
 
   &.dark {
     background-color: #393939;
-    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.25);
 
     .v-contextmenu-content {
       background-color: #393939;
-      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.25);
+      box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.25);
     }
 
     .v-contextmenu-item {
@@ -94,39 +83,37 @@ $subMenuWidth: 120px;
       }
 
       &.divider {
-        background-color: #999;
+        background-color: #888;
       }
 
       &.disable {
-        color: #999;
+        color: #888;
       }
     }
   }
 }
 .v-contextmenu-item {
   padding: 0 20px;
-  color: #666;
+  color: #333;
   font-size: 12px;
-  transition: all 0.3s;
+  transition: all 0.1s;
   white-space: nowrap;
   height: $menuHeight;
   line-height: $menuHeight;
-  border-radius: 4px;
   background-color: #fff;
-  cursor: pointer;
 
   &:not(.disable):hover > .v-contextmenu-item-content > .sub-menu {
     display: block;
   }
 
   &:hover:not(.disable) {
-    background-color: #f7f7f7;
+    background-color: #91c9f7;
   }
 
   &.divider {
     height: 1px;
     overflow: hidden;
-    margin: 5px 15px;
+    margin: 5px;
     background-color: #e5e5e5;
     line-height: 0;
     padding: 0;
@@ -146,34 +133,15 @@ $subMenuWidth: 120px;
   &.has-sub-menu::before {
     content: '';
     display: inline-block;
-    width: 0;
-    height: 0;
-    border-top: 4px solid transparent;
-    border-left: 4px solid #676b6f;
-    border-bottom: 4px solid transparent;
+    width: 8px;
+    height: 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #666 #666 transparent transparent;
     position: absolute;
     right: 0;
     top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .text {
-    display: flex;
-    align-items: center;
-  }
-  .icon {
-    margin-right: 7px;
-    display: flex;
-    align-items: center;
-  }
-  .text span {
-    vertical-align: middle;
-  }
-  .icon-placehoder {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    margin-right: 7px;
+    transform: translateY(-50%) rotate(45deg);
   }
   .sub-text {
     opacity: 0.3;
