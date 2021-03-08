@@ -1,6 +1,6 @@
 {
   "name": "v-contextmenu-directive",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "main": "./dist/v-contextmenu-directive.umd.min.js",
   "private": false,
   "keywords": [

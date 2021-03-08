@@ -16,6 +16,8 @@ yarn add v-contextmenu-directive
 ## 📚 如何使用？
 ```javascript
 import Vue from 'vue'
+
+import 'v-contextmenu-directive/dist/v-contextmenu-directive.css'
 import Contextmenu from 'v-contextmenu-directive'
 
 Vue.use(Contextmenu)
